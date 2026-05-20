@@ -299,3 +299,89 @@ nav {
 .book-modal-close-btn:hover {
     background: #e2e8f0;
 }
+
+
+/* Admin Form Modal */
+.admin-modal-inner {
+    max-width: 520px;
+    padding: 40px;
+}
+.admin-modal-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+.form-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+}
+.btn-cancel {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.btn-cancel:hover {
+    background: #f9fafb;
+}
+.btn-submit {
+    flex: 1;
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+.admin-table th {
+    text-align: left;
+    padding: 20px 24px;
+    background: #f8fafc;
+    font-weight: 600;
+}
+.admin-table th.center,
+.admin-table td.center {
+    text-align: center;
+}
+.admin-table td {
+    padding: 20px 24px;
+    border-top: 1px solid #f1f5f9;
+}
