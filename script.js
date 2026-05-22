@@ -255,6 +255,31 @@ function renderAdminTable() {
     });
 
 }
+function handleSearch() {
+
+    const term = document
+        .getElementById('global-search')
+        .value
+        .toLowerCase()
+        .trim();
+
+    if (!term) {
+
+        renderBooks(books);
+
+        return;
+
+    }
+
+    const filteredBooks = books.filter(book =>
+        book.titre.toLowerCase().includes(term) ||
+        book.auteur.toLowerCase().includes(term)
+    );
+
+    renderBooks(filteredBooks);
+
+}
+
 
 function navigate(page) {
 
