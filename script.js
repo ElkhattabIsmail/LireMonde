@@ -255,3 +255,41 @@ function renderAdminTable() {
     });
 
 }
+function editBook(id) {
+
+    const book = books.find(book => book.id === id);
+
+    if (!book) return;
+
+    document.getElementById('admin-modal-title').textContent =
+        'Modifier le livre';
+
+    document.getElementById('edit-id').value = book.id;
+
+    document.getElementById('form-titre').value = book.titre;
+
+    document.getElementById('form-auteur').value = book.auteur;
+
+    document.getElementById('form-genre').value = book.genre;
+
+    document.getElementById('form-couverture').value =
+        book.couverture;
+
+    document.getElementById('form-description').value =
+        book.description;
+
+    document.getElementById('admin-modal').style.display = 'flex';
+
+}
+
+function refreshAll() {
+
+    renderBooks();
+
+    renderReadingList();
+
+    renderAdminTable();
+
+    generateGenreFilters();
+
+}
