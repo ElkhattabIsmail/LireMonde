@@ -1,15 +1,6 @@
 {
   "books": [
     {
-      "id": 4,
-      "titre": "1984",
-      "auteur": "George Orwell",
-      "genre": "Classique",
-      "description": "Dans un monde totalitaire, Winston Smith lutte contre le Big Brother.",
-      "couverture": "https://picsum.photos/id/870/400/600",
-      "aLire": false
-    },
-    {
       "id": 5,
       "titre": "Le Petit Prince",
       "auteur": "Antoine de Saint-Exupéry",
