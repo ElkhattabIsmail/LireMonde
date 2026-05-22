@@ -146,6 +146,10 @@ function renderBooks(filteredBooks = books) {
                     </div>
                 `;
 
+                card.onclick = () => showBookModal(book.id);
+
+                container.appendChild(card);
+
     });
 
 }
@@ -195,7 +199,9 @@ function renderReadingList() {
 
                     </div>
                 `;
+                card.onclick = () => showBookModal(book.id);
 
+                container.appendChild(card);
 
     });
 
@@ -418,3 +424,91 @@ function filterByGenre(genre) {
     renderBooks(filteredBooks);
 
 }
+
+function showBookModal(id) {
+
+    currentBookId = id;
+
+    const book = books.find(book => book.id === id);
+
+    if (!book) return;
+
+    document.getElementById('modal-image').src = book.couverture;
+    document.getElementById('modal-title').textContent = book.titre;
+    document.getElementById('modal-author').textContent = book.auteur;
+    document.getElementById('modal-genre').textContent = book.genre;
+    document.getElementById('modal-description').textContent = book.description;
+
+    const button = document.getElementById('modal-toggle-btn');
+
+    if (book.aLire) {
+
+        button.innerHTML = `
+                    <i class="fa-solid fa-bookmark"></i>
+                    Retirer de À lire
+                `;
+
+        button.style.borderColor = '#ef4444';
+        button.style.color = '#ef4444';
+
+    } else {
+
+        button.innerHTML = `
+                    <i class="fa-solid fa-bookmark"></i>
+                    Ajouter à À lire
+                `;
+
+        button.style.borderColor = 'var(--primary)';
+        button.style.color = 'var(--primary)';
+
+    }
+
+    document.getElementById('book-modal').style.display = 'flex';
+
+}
+
+function closeModal() {
+
+    document.getElementById('book-modal').style.display = 'none';
+
+}
+
+function toggleFromModal() {
+
+    if (currentBookId) {
+
+        toggleALire(currentBookId);
+
+    }
+
+    closeModal();
+
+}
+
+function showAddModal() {
+
+    document.getElementById('admin-modal-title').textContent =
+        'Ajouter un livre';
+
+    document.getElementById('book-form').reset();
+
+    document.getElementById('edit-id').value = '';
+
+    document.getElementById('admin-modal').style.display = 'flex';
+
+}
+
+function closeAdminModal() {
+
+    document.getElementById('admin-modal').style.display = 'none';
+
+}
+
+// Initialisation
+window.onload = () => {
+
+    fetchBooks();
+
+    navigate('home');
+
+};

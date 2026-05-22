@@ -25,7 +25,7 @@
       "genre": "Science-fiction",
       "description": "L'histoire de la Fondation alors que l'Empire Galactique s'effondre.",
       "couverture": "https://picsum.photos/id/133/400/600",
-      "aLire": true
+      "aLire": false
     }
   ]
 }
