@@ -1,13 +1,3 @@
 {
-  "books": [
-    {
-      "id": 5,
-      "titre": "Le Petit Prince",
-      "auteur": "Antoine de Saint-Exupéry",
-      "genre": "Classique",
-      "description": "L'histoire poétique d'un petit prince venu d'une autre planète.",
-      "couverture": "https://picsum.photos/id/1016/400/600",
-      "aLire": false
-    }
-  ]
+  "books": []
 }
