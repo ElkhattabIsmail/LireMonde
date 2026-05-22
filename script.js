@@ -372,3 +372,49 @@ function refreshAll() {
     generateGenreFilters();
 
 }
+
+function generateGenreFilters() {
+
+    const genres = [...new Set(books.map(book => book.genre))];
+
+    const container = document.getElementById('genre-filters');
+
+    container.innerHTML = '';
+
+    const allButton = document.createElement('button');
+
+    allButton.className = 'filter-btn';
+
+    allButton.textContent = 'Tous';
+
+    allButton.onclick = () => filterByGenre(null);
+
+    container.appendChild(allButton);
+
+    genres.forEach(genre => {
+
+        const button = document.createElement('button');
+
+        button.className = 'filter-btn';
+
+        button.textContent = genre;
+
+        button.onclick = () => filterByGenre(genre);
+
+        container.appendChild(button);
+
+    });
+
+}
+
+function filterByGenre(genre) {
+
+    currentGenre = genre;
+
+    const filteredBooks = genre
+        ? books.filter(book => book.genre === genre)
+        : books;
+
+    renderBooks(filteredBooks);
+
+}
