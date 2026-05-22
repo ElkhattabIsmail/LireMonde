@@ -17,15 +17,6 @@
       "description": "L'histoire poétique d'un petit prince venu d'une autre planète.",
       "couverture": "https://picsum.photos/id/1016/400/600",
       "aLire": false
-    },
-    {
-      "id": 6,
-      "titre": "Fondation",
-      "auteur": "Isaac Asimov",
-      "genre": "Science-fiction",
-      "description": "L'histoire de la Fondation alors que l'Empire Galactique s'effondre.",
-      "couverture": "https://picsum.photos/id/133/400/600",
-      "aLire": false
     }
   ]
 }
