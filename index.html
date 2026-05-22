@@ -4,123 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LireMonde - Lecture Interactive</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-   
 </head>
-
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- NAVBAR -->
     <nav>
         <div class="container nav-container">
-
             <a href="#" class="logo" onclick="navigate('home')">
                 <div class="logo-icon">📖</div>
-
-                <div>
-                    <h1 class="heading-font logo-title">LireMonde</h1>
-                </div>
+                <h1 class="heading-font logo-title">LireMonde</h1>
             </a>
 
             <div class="nav-links">
-                <a href="#" onclick="navigate('home')" class="nav-link active" id="nav-home">
-                    Accueil
-                </a>
-
-                <a href="#" onclick="navigate('reading')" class="nav-link" id="nav-reading">
-                    À lire
-                </a>
-
-                <a href="#" onclick="navigate('admin')" class="nav-link" id="nav-admin">
-                    Admin
-                </a>
+                <a href="#" onclick="navigate('home')" class="nav-link active" id="nav-home">Accueil</a>
+                <a href="#" onclick="navigate('reading')" class="nav-link" id="nav-reading">À lire</a>
+                <a href="#" onclick="navigate('admin')" class="nav-link" id="nav-admin">Admin</a>
             </div>
 
             <div class="search-box">
-                <input
-                    type="text"
-                    id="global-search"
-                    placeholder="Rechercher un livre..."
-                    onkeyup="if(event.key === 'Enter') handleSearch()"
-                >
-
+                <input type="text" id="global-search" placeholder="Rechercher un livre..." oninput="handleSearch()">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
-
         </div>
     </nav>
 
-    <!-- ================= MAIN ================= -->
-
+    <!-- MAIN -->
     <div class="container page-container">
 
         <!-- HOME -->
-
         <div id="home-section">
-
             <div class="section-header">
-
-                <h2 class="heading-font section-title">
-                    Découvrez nos livres
-                </h2>
-
+                <h2 class="heading-font section-title">Découvrez nos livres</h2>
                 <div id="genre-filters" class="genre-filters"></div>
-
             </div>
-
             <div class="books-grid" id="books-grid"></div>
-
         </div>
 
         <!-- READING -->
-
         <div id="reading-section" class="hidden">
-
-            <h2 class="heading-font section-title">
-                Ma liste À lire
-            </h2>
-
+            <h2 class="heading-font section-title">Ma liste À lire</h2>
             <br>
-
             <div class="books-grid" id="reading-grid"></div>
-
             <div id="empty-reading" class="hidden text-center empty-reading">
-
-                <div class="empty-icon">📚</div>
-
-                <h3 class="empty-title">
-                    Votre liste est vide
-                </h3>
-
-                <p class="empty-text">
-                    Ajoutez des livres pour les voir ici
-                </p>
-
+                <h3 class="empty-title">Votre liste est vide</h3>
+                <p class="empty-text">Ajoutez des livres pour les voir ici</p>
             </div>
-
         </div>
 
         <!-- ADMIN -->
-
         <div id="admin-section" class="hidden">
-
             <div class="section-header">
-
-                <h2 class="heading-font section-title">
-                    Gestion des livres
-                </h2>
-
+                <h2 class="heading-font section-title">Gestion des livres</h2>
                 <button onclick="showAddModal()" class="btn btn-primary">
-                    Ajouter un livre
+                    <i class="fa-solid fa-plus"></i> Ajouter un livre
                 </button>
-
             </div>
-
             <table class="admin-table">
-
                 <thead>
                     <tr>
                         <th>Couverture</th>
@@ -130,188 +71,85 @@
                         <th class="action-cell">Actions</th>
                     </tr>
                 </thead>
-
                 <tbody id="admin-table-body"></tbody>
-
             </table>
-
         </div>
 
     </div>
 
-    <!-- ================= BOOK MODAL ================= -->
-
+    <!-- BOOK MODAL -->
     <div id="book-modal" class="modal-overlay">
-
         <div class="modal book-modal">
-
             <div class="book-modal-image-wrapper">
                 <img id="modal-image" class="book-modal-image" alt="">
             </div>
-
             <div class="book-modal-content">
-
                 <div class="modal-top">
-
                     <div>
                         <h2 id="modal-title" class="heading-font modal-title"></h2>
-
                         <p id="modal-author" class="modal-author"></p>
                     </div>
-
-                    <button onclick="closeModal()" class="close-btn">
-                        ×
-                    </button>
-
+                    <button onclick="closeModal()" class="close-btn">×</button>
                 </div>
-
                 <span id="modal-genre" class="modal-genre"></span>
-
                 <p id="modal-description" class="modal-description"></p>
-
                 <div class="modal-actions">
-
-                    <button
-                        onclick="toggleFromModal()"
-                        id="modal-toggle-btn"
-                        class="btn btn-outline"
-                    ></button>
-
-                    <button
-                        onclick="closeModal()"
-                        class="btn btn-secondary"
-                    >
-                        Fermer
-                    </button>
-
+                    <button onclick="toggleFromModal()" id="modal-toggle-btn" class="btn btn-outline"></button>
+                    <button onclick="closeModal()" class="btn btn-secondary">Fermer</button>
                 </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- ADMIN MODAL -->
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal admin-modal">
+            <h3 id="admin-modal-title" class="heading-font modal-title">Ajouter un livre</h3>
+            <br>
+            <input type="hidden" id="edit-id">
+
+            <div class="form-group">
+                <label class="form-label">Titre</label>
+                <input type="text" id="form-titre" class="form-input" required>
             </div>
 
-        </div>
+            <div class="form-group">
+                <label class="form-label">Auteur</label>
+                <input type="text" id="form-auteur" class="form-input" required>
+            </div>
 
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Genre</label>
+                    <select id="form-genre" class="form-select" required>
+                        <option value="">Choisir...</option>
+                        <option value="Classique">Classique</option>
+                        <option value="Science-fiction">Science-fiction</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Drame">Drame</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Couverture URL</label>
+                    <input type="url" id="form-couverture" class="form-input" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea id="form-description" rows="4" class="form-textarea" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" onclick="closeAdminModal()" class="btn btn-secondary">Annuler</button>
+                <button type="button" onclick="handleBookForm()" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
     </div>
 
-    <!-- ================= ADMIN MODAL ================= -->
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast hidden"></div>
 
-    <div id="admin-modal" class="modal-overlay">
-
-        <div class="modal admin-modal">
-
-            <h3 id="admin-modal-title" class="heading-font modal-title">
-                Ajouter un livre
-            </h3>
-
-            <br>
-
-            <form id="book-form" onsubmit="handleBookForm(event)">
-
-                <input type="hidden" id="edit-id">
-
-                <div class="form-group">
-
-                    <label class="form-label">Titre</label>
-
-                    <input
-                        type="text"
-                        id="form-titre"
-                        class="form-input"
-                        required
-                    >
-
-                </div>
-
-                <div class="form-group">
-
-                    <label class="form-label">Auteur</label>
-
-                    <input
-                        type="text"
-                        id="form-auteur"
-                        class="form-input"
-                        required
-                    >
-
-                </div>
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-
-                        <label class="form-label">Genre</label>
-
-                        <select
-                            id="form-genre"
-                            class="form-select"
-                            required
-                        >
-                            <option value="">Choisir...</option>
-                            <option value="Classique">Classique</option>
-                            <option value="Science-fiction">Science-fiction</option>
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="Drame">Drame</option>
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label class="form-label">
-                            Couverture URL
-                        </label>
-
-                        <input
-                            type="url"
-                            id="form-couverture"
-                            class="form-input"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label class="form-label">
-                        Description
-                    </label>
-
-                    <textarea
-                        id="form-description"
-                        rows="5"
-                        class="form-textarea"
-                        required
-                    ></textarea>
-
-                </div>
-
-                <div class="form-actions">
-
-                    <button
-                        type="button"
-                        onclick="closeAdminModal()"
-                        class="btn btn-secondary"
-                    >
-                        Annuler
-                    </button>
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        Enregistrer
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

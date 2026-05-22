@@ -1,3 +1,22 @@
 {
-  "books": []
+  "books": [
+    {
+      "titre": "New",
+      "auteur": "George Orwell ffff",
+      "genre": "Drame",
+      "couverture": "https://picsum.photos/id/201/400/600",
+      "description": "ffff",
+      "aLire": false,
+      "id": 1
+    },
+    {
+      "titre": "ffffffffff",
+      "auteur": "fdghdffgh",
+      "genre": "Classique",
+      "couverture": "https://picsum.photos/id/201/400/600",
+      "description": "fffff",
+      "aLire": false,
+      "id": 2
+    }
+  ]
 }

@@ -4,7 +4,8 @@
   "description": "LireMonde - Bibliothèque numérique ReadSphere",
   "scripts": {
     "api": "npx json-server --watch db.json --port 3000 --host 0.0.0.0",
-    "start": "npx json-server --watch db.json --port 3000"
+    "start": "npx json-server --watch db.json --port 3000",
+    "kill": "npx kill-port 3000"
   },
   "dependencies": {
     "json-server": "^0.17.4"
