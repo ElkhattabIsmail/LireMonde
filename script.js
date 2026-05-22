@@ -255,6 +255,60 @@ function renderAdminTable() {
     });
 
 }
+
+function navigate(page) {
+
+    document
+        .querySelectorAll('.nav-link')
+        .forEach(link => link.classList.remove('active'));
+
+    document.getElementById('home-section').classList.add('hidden');
+
+    document.getElementById('reading-section').classList.add('hidden');
+
+    document.getElementById('admin-section').classList.add('hidden');
+
+    if (page === 'home') {
+
+        document
+            .getElementById('home-section')
+            .classList.remove('hidden');
+
+        document
+            .getElementById('nav-home')
+            .classList.add('active');
+
+    }
+
+    if (page === 'reading') {
+
+        document
+            .getElementById('reading-section')
+            .classList.remove('hidden');
+
+        document
+            .getElementById('nav-reading')
+            .classList.add('active');
+
+        renderReadingList();
+
+    }
+
+    if (page === 'admin') {
+
+        document
+            .getElementById('admin-section')
+            .classList.remove('hidden');
+
+        document
+            .getElementById('nav-admin')
+            .classList.add('active');
+
+        renderAdminTable();
+
+    }
+
+}
 function editBook(id) {
 
     const book = books.find(book => book.id === id);
