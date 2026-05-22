@@ -17,7 +17,7 @@
     <nav>
         <div class="container nav-container">
 
-            <a href="#" class="logo" >
+            <a href="#" class="logo" onclick="navigate('home')">
                 <div class="logo-icon">📖</div>
 
                 <div>
@@ -26,15 +26,15 @@
             </a>
 
             <div class="nav-links">
-                <a href="#" class="nav-link active" id="nav-home">
+                <a href="#" onclick="navigate('home')" class="nav-link active" id="nav-home">
                     Accueil
                 </a>
 
-                <a href="#"  class="nav-link" id="nav-reading">
+                <a href="#" onclick="navigate('reading')" class="nav-link" id="nav-reading">
                     À lire
                 </a>
 
-                <a href="#"  class="nav-link" id="nav-admin">
+                <a href="#" onclick="navigate('admin')" class="nav-link" id="nav-admin">
                     Admin
                 </a>
             </div>
@@ -44,6 +44,7 @@
                     type="text"
                     id="global-search"
                     placeholder="Rechercher un livre..."
+                    onkeyup="if(event.key === 'Enter') handleSearch()"
                 >
 
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -112,7 +113,7 @@
                     Gestion des livres
                 </h2>
 
-                <button class="btn btn-primary">
+                <button onclick="showAddModal()" class="btn btn-primary">
                     Ajouter un livre
                 </button>
 
@@ -158,7 +159,7 @@
                         <p id="modal-author" class="modal-author"></p>
                     </div>
 
-                    <button class="close-btn">
+                    <button onclick="closeModal()" class="close-btn">
                         ×
                     </button>
 
@@ -171,11 +172,13 @@
                 <div class="modal-actions">
 
                     <button
+                        onclick="toggleFromModal()"
                         id="modal-toggle-btn"
                         class="btn btn-outline"
                     ></button>
 
                     <button
+                        onclick="closeModal()"
                         class="btn btn-secondary"
                     >
                         Fermer
@@ -201,7 +204,7 @@
 
             <br>
 
-            <form id="book-form" >
+            <form id="book-form" onsubmit="handleBookForm(event)">
 
                 <input type="hidden" id="edit-id">
 
@@ -287,6 +290,7 @@
 
                     <button
                         type="button"
+                        onclick="closeAdminModal()"
                         class="btn btn-secondary"
                     >
                         Annuler
