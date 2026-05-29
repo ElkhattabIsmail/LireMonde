@@ -169,7 +169,7 @@ function renderAdminTable() {
 function navigate(page) {
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     document.querySelectorAll('#home-section, #reading-section, #admin-section')
-        .forEach(s => s.classList.add('hidden'));
+        .forEach(s => s.classList.add('hidden'));// Hide all sections
 
     document.getElementById(`${page}-section`).classList.remove('hidden');
     document.getElementById(`nav-${page}`).classList.add('active');
@@ -343,7 +343,8 @@ function showToast(message, type = '') {
     toast.classList.remove('hidden');
 
     if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.add('hidden'), 3000);
+    toastTimer = setTimeout(() =>
+         toast.classList.add('hidden'), 3000);
 }
 
 document.getElementById('book-modal').addEventListener('click', function(e) {

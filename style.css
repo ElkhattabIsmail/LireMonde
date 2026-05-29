@@ -266,7 +266,7 @@ nav {
 
 .table-cover { width: 56px; height: 72px; object-fit: cover; border-radius: 10px; }
 
-.action-cell { text-align: center; }
+.action-cell { text-align: left; }
 
 .icon-btn {
     background: transparent;

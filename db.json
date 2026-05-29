@@ -1,22 +1,40 @@
 {
   "books": [
     {
-      "titre": "New",
-      "auteur": "George Orwell ffff",
-      "genre": "Drame",
-      "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "ffff",
-      "aLire": false,
-      "id": 1
-    },
-    {
-      "titre": "ffffffffff",
-      "auteur": "fdghdffgh",
+      "titre": "aaa",
+      "auteur": "aaa",
       "genre": "Classique",
       "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "fffff",
+      "description": "aaa",
+      "aLire": true,
+      "id": 4
+    },
+    {
+      "titre": "bbb",
+      "auteur": "bbb",
+      "genre": "Fantasy",
+      "couverture": "https://picsum.photos/id/201/400/600",
+      "description": "bbb",
       "aLire": false,
-      "id": 2
+      "id": 5
+    },
+    {
+      "titre": "ccc",
+      "auteur": "ccc",
+      "genre": "Drame",
+      "couverture": "https://picsum.photos/id/201/400/600",
+      "description": "ccc",
+      "aLire": false,
+      "id": 6
+    },
+    {
+      "titre": "dd",
+      "auteur": "dd",
+      "genre": "Science-fiction",
+      "couverture": "https://picsum.photos/id/201/400/600",
+      "description": "dd",
+      "aLire": false,
+      "id": 7
     }
   ]
 }
