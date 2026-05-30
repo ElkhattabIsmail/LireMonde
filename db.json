@@ -1,40 +1,40 @@
 {
   "books": [
     {
-      "titre": "aaa",
-      "auteur": "aaa",
+      "titre": "b",
+      "auteur": "b",
+      "genre": "Classique",
+      "couverture": "https://picsum.photos/id/1016/400/600",
+      "description": "b",
+      "aLire": true,
+      "id": 2
+    },
+    {
+      "titre": "c",
+      "auteur": "c",
       "genre": "Classique",
       "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "aaa",
-      "aLire": true,
+      "description": "c",
+      "aLire": false,
+      "id": 3
+    },
+    {
+      "titre": "d",
+      "auteur": "d",
+      "genre": "Science-fiction",
+      "couverture": "https://picsum.photos/id/870/400/600",
+      "description": "d",
+      "aLire": false,
       "id": 4
     },
     {
-      "titre": "bbb",
-      "auteur": "bbb",
+      "titre": "e",
+      "auteur": "e",
       "genre": "Fantasy",
-      "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "bbb",
+      "couverture": "https://picsum.photos/id/1016/400/600",
+      "description": "e",
       "aLire": false,
       "id": 5
-    },
-    {
-      "titre": "ccc",
-      "auteur": "ccc",
-      "genre": "Drame",
-      "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "ccc",
-      "aLire": false,
-      "id": 6
-    },
-    {
-      "titre": "dd",
-      "auteur": "dd",
-      "genre": "Science-fiction",
-      "couverture": "https://picsum.photos/id/201/400/600",
-      "description": "dd",
-      "aLire": false,
-      "id": 7
     }
   ]
 }
